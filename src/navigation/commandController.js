@@ -2,8 +2,8 @@ import { existsSync } from 'fs';
 import { readdir } from 'node:fs/promises';
 import { homedir } from 'os';
 import path from 'path';
-import { read, create, rename, copy, move, remove } from "./fs/index";
-
+import { read, create, rename, copy, move, remove } from './fs/index';
+import getOs from './os/getOs';
 
 const cd = (path, line) => {
  const pathDir = line.split(' ')[1] ?? '';
@@ -34,8 +34,9 @@ const state = {
 };
 
 export const commandController = async (line) => {
+ const cmd = line.trim().split(' ')[0];
  try {
-  switch (line.trim().split(' ')[0]) {
+  switch (cmd) {
    case 'up':
     {
      const up = path.join(state.currentDir, '../');
@@ -71,6 +72,9 @@ export const commandController = async (line) => {
     break;
    case '.exit':
     rl.close();
+    break;
+   case 'os':
+    getOs(line);
     break;
    default:
     console.log('Invalid input');
