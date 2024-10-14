@@ -1,7 +1,7 @@
 import { existsSync } from "fs";
 import { unlink } from "fs/promises";
 import { rm } from "fs/promises";
-import { cmdParse } from "../../utils/cmdParse";
+import { cmdParse } from "../../utils/cmdParse.js";
 
 const remove = async (line) => {
   const [_, ...rest] = cmdParse(line);

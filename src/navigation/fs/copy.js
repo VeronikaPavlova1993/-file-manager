@@ -2,7 +2,7 @@ import { createReadStream, createWriteStream } from 'fs';
 import { resolve } from 'path';
 import { cwd } from 'process';
 import { pipeline } from 'stream/promises';
-import { cmdParse } from '../../utils/cmdParse';
+import { cmdParse } from '../../utils/cmdParse.js';
 
 
 

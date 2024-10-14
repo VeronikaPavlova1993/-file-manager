@@ -1,6 +1,6 @@
 import fs from "fs/promises";
-import { cmdParse } from "../../utils/cmdParse";
-import isExist from "../../utils/isExit";
+import { cmdParse } from "../../utils/cmdParse.js";
+import isExist from "../../utils/isExit.js";
 const rename = async (line) => {
     const [_, ...rest] = cmdParse(line);
     if (rest.length !== 2)

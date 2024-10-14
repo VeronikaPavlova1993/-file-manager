@@ -2,8 +2,8 @@ import { existsSync } from 'fs';
 import { readdir } from 'node:fs/promises';
 import { homedir } from 'os';
 import path from 'path';
-import { read, create, rename, copy, move, remove } from './fs/index';
-import getOs from './os/getOs';
+import { read, create, rename, copy, move, remove } from './fs/index.js';
+import getOs from './os/getOs.js';
 
 const cd = (path, line) => {
  const pathDir = line.split(' ')[1] ?? '';
