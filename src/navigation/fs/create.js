@@ -1,7 +1,7 @@
 import { open } from "fs/promises";
 import { resolve } from "path";
 import { cwd } from "process";
-import { cmdParse } from "./copy";
+import { cmdParse } from "../../utils/cmdParse";
 
 
 const create = async (line) => {

@@ -1,7 +1,7 @@
 import { createInterface } from 'readline';
 import { getUsername } from './navigation/getUsername.js';
-import { homedir } from 'os';
 import { commandController } from './navigation/commandController.js';
+import showDir from './utils/showDir.js';
 
 const rl = createInterface({
  input: process.stdin,
@@ -13,7 +13,7 @@ const rl = createInterface({
 const start = () => {
  const username = getUsername();
  console.log(`Welcome to the File Manager, ${username}!`);
- console.log(`You are curently in ${homedir()}`);
+ showDir();
  rl.prompt();
 };
 

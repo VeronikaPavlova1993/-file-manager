@@ -1,9 +1,16 @@
 import { existsSync } from "fs";
 import { unlink } from "fs/promises";
-import path from "path";
-const remove = async (currentDir, line) => {
-  const fileName = line.split(" ")[1] ?? "";
-  const filePath = path.resolve(currentDir, fileName);
+import { rm } from "fs/promises";
+import { cmdParse } from "../../utils/cmdParse";
+
+const remove = async (line) => {
+  const [_, ...rest] = cmdParse(line);
+  if (rest.length > 1) throw new Error('Error');
+  const filePath = rest[0];
+  const pathToFile = resolve(cwd(), filePath);
+  const isFileExist = await isFile(pathToFile);
+  if (!isFileExist) throw new Error("Invalid file path");
+  await rm(pathToFile);
   try {
     if (!existsSync(filePath)) throw new Error("FS operation failed");
     await unlink(filePath);
