@@ -1,6 +1,7 @@
 import { existsSync } from 'fs';
 import { readdir } from 'node:fs/promises';
 import { homedir } from 'os';
+import path from 'path';
 
 const cd = (path, line) => {
  const pathDir = line.split(' ')[1] ?? '';
@@ -25,6 +26,7 @@ const ls = async (path) => {
   console.log("Operation failed");
  }
 };
+
 
 const state = {
  currentDir: homedir(),
